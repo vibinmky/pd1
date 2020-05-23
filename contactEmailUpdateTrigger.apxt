@@ -1,0 +1,8 @@
+trigger contactEmailChange on Contact(before insert){
+    
+    if(Trigger.isInsert){
+        for(contact c:Trigger.new){
+            c.Email='hello@world.com';
+        }
+    }
+}
