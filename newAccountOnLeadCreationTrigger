@@ -8,3 +8,16 @@ trigger AccountOnLeadCreation on Lead (before insert) {
     }
 
 }
+
+
+
+//test class
+@IsTest
+public class AccountOnLeadCreationTest {
+    static testMethod void AccountCreationTest(){
+        Lead l = new Lead();
+        l.LastName='Pappa';
+        l.Company='Gnana Pappa PVT limited';
+        insert l;
+    }
+}
