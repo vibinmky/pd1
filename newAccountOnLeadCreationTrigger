@@ -1,0 +1,10 @@
+trigger AccountOnLeadCreation on Lead (before insert) {
+
+   if(Trigger.isInsert){
+        for(Lead l:Trigger.new){
+            Account a= new Account(Name=l.LastName,Rating='Hot',Type='Customer - Direct',AnnualRevenue=5000);
+            insert a;
+        }
+    }
+
+}
