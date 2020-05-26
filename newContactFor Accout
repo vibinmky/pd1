@@ -1,0 +1,12 @@
+trigger newContactForAccount on Account (after insert) {
+    if( trigger.isInsert ){
+        for(Account a: Trigger.new){
+            Contact c= new Contact();
+            c.LastName='David';
+            c.FirstName='Malan';
+            c.AccountId= a.Id;
+            insert c;
+        }
+        
+    }
+}
