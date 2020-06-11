@@ -1,0 +1,21 @@
+public with sharing class contactListController {
+
+    @AuraEnabled
+    public static List<contact> getContacts(){
+        
+        return 	[SELECT ID,Name,Phone FROM contact];
+    }
+    
+    @AuraEnabled
+    public static List<contact> findContacts(String query){
+        
+        String searchToken= '%'+query+'%';
+        return 	[SELECT ID,Name,Phone FROM contact WHERE Name LIKE:searchToken];
+    }
+    
+    @AuraEnabled
+    public static Contact viewContact(String contactId){
+        System.debug(contactId);
+        return 	[SELECT ID,Name,Title,Department,Phone,Account.Name FROM contact WHERE ID='0032w0000022tfHAAQ'];
+    }
+}
