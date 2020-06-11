@@ -1,0 +1,5 @@
+<aura:component controller="contactListController">
+    <aura:attribute	name="con"	type="Contact"/>
+	<aura:handler	event="aura:locationChange"	action="{!c.viewContact}"	/><br></br>
+    {!v.con}
+</aura:component>
