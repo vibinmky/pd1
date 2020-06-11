@@ -1,0 +1,8 @@
+({
+	search : function(component,event) {
+       	
+        var myEvent= $A.get("e.c:searchContactEvent");
+        myEvent.setParams({"searchKey":event.target.value});
+       	myEvent.fire();
+	}
+})
