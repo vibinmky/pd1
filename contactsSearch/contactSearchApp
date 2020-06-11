@@ -1,0 +1,5 @@
+<aura:application >
+    <c:searchBoxComponent/><br></br>
+    <c:contactListComponent/>
+    <c:viewContactDetailsComponent/>
+</aura:application>
