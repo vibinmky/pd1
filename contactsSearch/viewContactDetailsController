@@ -1,0 +1,22 @@
+({
+	viewContact : function(component, event) {
+        
+        var token=event.getParam("token");
+
+        if(token.indexOf('contact/')===0){
+            var viewId=token.substr(token.indexOf('/')+1);
+            
+        var action= component.get("c.viewContact");
+        action.setParams({contactId:viewId});
+          action.setCallback(this,function(a){
+            console.log(action);
+            var state = a.getState();
+            console.log(state);
+
+            component.set("v.con",a.getReturnValue());
+                           }); 
+      $A.enqueueAction(action);
+            console.log(action);
+        }
+	}
+})
