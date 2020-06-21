@@ -1,0 +1,7 @@
+({
+	helperMethod : function(c) {
+		var isChecked= c.find("checkbox").get("v.checked");
+        c.set("v.isChecked",isChecked);
+        c.set("v.RegForm.OnlineClassRequired__c",isChecked);
+	}
+})
