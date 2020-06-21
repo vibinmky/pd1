@@ -1,0 +1,16 @@
+<aura:application extends="force:slds">
+    
+    <!--Student Details Form-->
+    <aura:attribute name="buttonLabel" type="String" default="Open Form" />
+    <aura:attribute name="openForm"	type="Boolean"	default="false" />
+    
+    <br/>
+    <div	class="slds-align_absolute-center" style="height:2rem">
+    	<lightning:button label="{!v.buttonLabel}"	onclick="{!c.changeButtonValue}"/>
+    </div>
+    <br/>
+    <aura:if isTrue="{!v.openForm}">
+        <c:StudentDetailsFormComponent/>
+    </aura:if>
+    
+</aura:application>
