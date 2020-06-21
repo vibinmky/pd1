@@ -1,0 +1,15 @@
+public	with sharing class registrationFormController {
+
+    @AuraEnabled
+    public static Id saveRegForm(Registration_Form__c r){
+        insert r;
+        return r.Id;
+    }
+    
+    
+    @AuraEnabled
+    public static void saveEduDetails(education_Detail__c e){
+        insert e;
+        
+    }
+}
