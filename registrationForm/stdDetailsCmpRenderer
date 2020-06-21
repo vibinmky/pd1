@@ -1,0 +1,32 @@
+({
+    render: function(component,helper){
+        //call base method
+        var a= this.superRender();
+        //custom rendering
+        console.log("This message from render override function");
+        
+        //render method only required return statement
+        return a;
+    },
+    
+    afterRender: function(component,helper){
+        //call base method
+        this.superAfterRender();
+        //custom rendering
+        console.log("This message from after render override function");
+    },
+    
+    rerender: function(component,helper){
+        //call base method
+        this.superRerender();
+        //custom rendering
+        console.log("This message from re render override function");
+    },
+    
+    unrender: function(component,helper){
+        //call base method
+        this.superUnrender();
+        //custom rendering
+        console.log("This message from un render override function");
+    },
+})
