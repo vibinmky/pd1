@@ -1,0 +1,46 @@
+({    
+    doInit : function(component, event, helper) {
+		
+        var l=parseInt(component.get("v.indexNo"))+1;
+        component.set("v.indexNo",l);
+	},
+    
+    deleteEducationList : function(component, event, helper) {
+		var newList=component.get("v.childEducationList");
+     	newList.pop();
+        component.set("v.childEducationList",newList);		
+	},
+    
+    
+    insertRecord : function(cmp, event, helper) {
+        
+		var eduDetails=cmp.get("v.eduDetails");
+        eduDetails.Registration_Form__c = cmp.get("v.RegFormId");
+        // Calling server side action
+		var action = cmp.get("c.saveEduDetails");
+        action.setParams({ e : eduDetails });
+
+        // Create a callback that is executed after 
+        // the server-side action returns
+        action.setCallback(this, function(response) {
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                                
+            }
+            else if (state === "ERROR") {
+                var errors = response.getError();
+                if (errors) {
+                    if (errors[0] && errors[0].message) {
+                        console.log("Error message: " + 
+                                 errors[0].message);
+                    }
+                } else {
+                    console.log("Unknown error");
+                }
+            }
+        });
+
+        // $A.enqueueAction adds the server-side action to the queue.
+        $A.enqueueAction(action);   
+	},
+})
