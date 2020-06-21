@@ -1,0 +1,5 @@
+<design:component label="Registration Form">
+    <design:attribute	name="formHeading"	label="Form Heading"	datasource="Registration Form for Women,Registration Form for Men,Registration form for Boys, Registration form for Girls"	description="Select your Form Name">
+    </design:attribute>
+	
+</design:component>
