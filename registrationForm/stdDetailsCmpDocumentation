@@ -1,0 +1,7 @@
+<aura:documentation>
+	<aura:description>Student Details Form</aura:description>
+	<aura:example name="StudentDetailsForm" ref="c:StudentDetailsFromComponentController" label="Student Details Form">
+		This form capture the student details for one subject registration
+        This component pass value to controller class. Controller class calls the helper class. Helper class to the Actions.
+	</aura:example>
+</aura:documentation>
