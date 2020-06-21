@@ -1,0 +1,35 @@
+<aura:component	controller="registrationFormController" implements="flexipage:availableForAllPageTypes" access="global" >
+	
+    <!-- attributes Declaration-->
+    
+    <aura:attribute	name="NameOfInstitute"	type="String"	default=""/>
+    <aura:attribute	name="Department"	type="String"	default=""/>
+    <aura:attribute	name="YearOfGraduation"	type="Integer"	/>
+    <aura:attribute	name="PercentageOrCGPA"	type="Integer"	/>
+    <aura:attribute name="childEducationList" type="List" default="[]"	/>
+    <aura:attribute name="indexNo"	type="Integer"	/>
+    <aura:handler	name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute	name="eduDetails"	type="education_Detail__c"	default="{'sObject':'education_Detail__c'}"	/>
+    <aura:attribute	name="RegFormId"	type="String"	/>
+    <aura:handler	name="change"	value="{!v.RegFormId}"	action="{!c.insertRecord}"	/>
+    
+    <!-- UI components-->
+    <div	class="slds-section">
+        <h3	class="slds-section__title">
+        	Education Details -> {!v.indexNo}
+        </h3>
+    	
+    </div>
+    <div class="slds-form_horizontal slds-form slds-grid slds-wrap">
+    <lightning:input	type="text"	label="Name of Institute"	value="{!v.eduDetails.NameOfInstitute__c}"	/>
+    <br/>
+    <lightning:input	type="text"	label="Department"	value="{!v.eduDetails.Department__c}"	/>
+    <br/>
+    <lightning:input	type="number"	label="Year Of Graduation"	value="{!v.eduDetails.YearOfGraduation__c}"	/>
+    <br/>
+    <lightning:input	type="number"	label="Percentage Or CGPA"	value="{!v.eduDetails.PercentageOrCGPA__c}"	/>
+    <br/>
+    <lightning:button	iconName="utility:delete"	variant="destructive"	label="Delete Education Details"	onclick="{!c.deleteEducationList}">
+        </lightning:button>
+    </div>
+</aura:component>
